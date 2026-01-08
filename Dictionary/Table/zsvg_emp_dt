@@ -1,0 +1,21 @@
+@EndUserText.label : 'Draft table for entity ZSVG_I_EMP'
+@AbapCatalog.enhancement.category : #EXTENSIBLE_ANY
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zsvg_emp_dt {
+
+  key mandt            : mandt not null;
+  key id               : sysuuid_x16 not null;
+  fname                : abap.char(10);
+  lname                : abap.char(10);
+  dob                  : abap.dats;
+  loc                  : abap.char(3);
+  createdby            : abp_creation_user;
+  createdat            : abp_creation_tstmpl;
+  lastchangedby        : abp_lastchange_user;
+  lastchangedat        : abp_lastchange_tstmpl;
+  locinstlastchangedat : abp_locinst_lastchange_tstmpl;
+  "%admin"             : include sych_bdl_draft_admin_inc;
+
+}
