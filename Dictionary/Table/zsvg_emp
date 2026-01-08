@@ -1,0 +1,20 @@
+@EndUserText.label : 'Database table for emp'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zsvg_emp {
+
+  key client             : abap.clnt not null;
+  key id                 : sysuuid_x16 not null;
+  fname                  : abap.char(10);
+  lname                  : abap.char(10);
+  dob                    : abap.dats;
+  loc                    : abap.char(3);
+  created_by             : abp_creation_user;
+  created_at             : abp_creation_tstmpl;
+  lastchanged_by         : abp_lastchange_user;
+  lastchanged_at         : abp_lastchange_tstmpl;
+  locinst_lastchanged_at : abp_locinst_lastchange_tstmpl;
+
+}
