@@ -1,0 +1,27 @@
+@EndUserText.label : 'Database table for project'
+@AbapCatalog.enhancement.category : #NOT_EXTENSIBLE
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zsvg_proj {
+
+  key client             : abap.clnt not null;
+  key id                 : sysuuid_x16 not null;
+  @AbapCatalog.foreignKey.screenCheck : false
+  key emp_id             : sysuuid_x16 not null
+    with foreign key zsvg_emp
+      where client = zsvg_proj.client
+        and id = zsvg_proj.emp_id;
+  name                   : abap.char(10);
+  loc                    : abap.char(3);
+  alloc                  : abap.numc(3);
+  start_date             : abap.dats;
+  active                 : abap.char(1);
+  end_date               : abap.dats;
+  created_by             : abp_creation_user;
+  created_at             : abp_creation_tstmpl;
+  lastchanged_by         : abp_lastchange_user;
+  lastchanged_at         : abp_lastchange_tstmpl;
+  locinst_lastchanged_at : abp_locinst_lastchange_tstmpl;
+
+}
