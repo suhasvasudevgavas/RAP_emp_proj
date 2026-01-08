@@ -1,0 +1,24 @@
+@EndUserText.label : 'Draft table for entity ZSVG_I_PROJ'
+@AbapCatalog.enhancement.category : #EXTENSIBLE_ANY
+@AbapCatalog.tableCategory : #TRANSPARENT
+@AbapCatalog.deliveryClass : #A
+@AbapCatalog.dataMaintenance : #RESTRICTED
+define table zsvg_proj_dt {
+
+  key mandt            : mandt not null;
+  key id               : sysuuid_x16 not null;
+  key empid            : sysuuid_x16 not null;
+  name                 : abap.char(10);
+  loc                  : abap.char(3);
+  alloc                : abap.numc(3);
+  startdate            : abap.dats;
+  active               : abap.char(1);
+  enddate              : abap.dats;
+  createdby            : abp_creation_user;
+  createdat            : abp_creation_tstmpl;
+  lastchangedby        : abp_lastchange_user;
+  lastchangedat        : abp_lastchange_tstmpl;
+  locinstlastchangedat : abp_locinst_lastchange_tstmpl;
+  "%admin"             : include sych_bdl_draft_admin_inc;
+
+}
